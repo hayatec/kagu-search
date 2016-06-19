@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        メッセージ一覧
+      </div>
+      <div class="panel-body">
+        <% @categories.each do |category| %>
+        <span class="label label-info"><%= category.browsenode_id %></span>
+        <%= category.category_name %>
+        (<%= link_to "edit" , edit_category_path(category) %>
+         <%= link_to "destroy" , category , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>)
+        <br>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+

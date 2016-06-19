@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <%= form_for(@categories,:html => {:class => "form-horizontal"}) do |f| %>
+    <% if @categories.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @categories.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
+    <div class="form-group">
+      <%= f.label :browsenode_id, 'BrowsNodeId', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5 ">
+        <%= f.text_field :browsenode_id, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :category_name, '名前', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5 ">
+        <%= f.text_field :category_name, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-2">
+        <%= f.submit class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

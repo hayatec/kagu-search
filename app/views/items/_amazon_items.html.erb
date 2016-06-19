@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+    <% items.each do |item| %>
+      <div class="item-box">
+        <div class="image">
+          <div class="img-wrap">
+            <% if item.get('LargeImage/URL').nil? %>
+               <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% else %>
+              <%= image_tag(item.get('LargeImage/URL') , alt: item.get('ItemAttributes/Title')) %>
+            <% end %> 
+          </div>
+        </div>
+        <div class="detail">
+          <p class="title">
+             <%= item.get('ItemAttributes/Title')%>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

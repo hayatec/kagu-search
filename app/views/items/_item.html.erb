@@ -1,0 +1,63 @@
+  <table class ="table table-bordered table-condensed table-responsive">
+    <thead>
+      <tr>
+        <th class="hidden-xs col-ms-2 col-md-2">イメージ</th>
+        <th class="col-xs-1 col-ms-2 col-md-1"><%= sort_link(@search, :br_name, "種類") %></th>
+        <th class="col-xs-1 col-ms-2 col-md-1"><%= sort_link(@search, :title, "商品名") %></th>
+        <th class="col-xs-1 col-ms-2 col-md-1"><%= sort_link(@search, :brand, "ブランド") %></th>
+        <th class="col-xs-1 col-ms-2 col-md-1"><%= sort_link(@search, :height, "高さ") %></th>
+        <th class="col-xs-1 col-ms-2 col-md-1"><%= sort_link(@search, :width, "幅") %></th>
+        <th class="col-xs-1 col-ms-2 col-md-1"><%= sort_link(@search, :length, "奥行き") %></th>
+        <th class="col-xs-1 col-ms-2 col-md-1"><%= sort_link(@search, :price, "価格") %></th>
+      </tr>
+    </thead>
+  <tbody>
+    <% @item.each do |item| %>
+      <td class="hidden-xs">
+
+            <% if item.large_image.present? %>
+              <%= image_tag(item.midium_image , alt: item.title) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item.title) %>
+            <% end %>
+
+      </td>
+      <td><%= item.category_name %></td>
+      <td>
+        <div class="visible-xs">
+            <% if item.large_image.present? %>
+              <%= image_tag(item.midium_image , alt: item.title) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item.title) %>
+            <% end %>
+        </div>
+        <p>
+           <span class="glyphicon glyphicon-shopping-cart"></span>
+           <span><%= link_to item.title , edit_item_path(item) %></span>
+         </p>
+         <p>
+           <% url_prefix ="http://hb.afl.rakuten.co.jp/hgc/12a8a9fb.851ceb25.12a8a9fc.0ed1ef23/?pc=http://search.rakuten.co.jp/search/mall?sitem="
+           manufacture=""
+           model=""
+           manufacture = item.manufacture if item.manufacture.present?
+           model = item.model if item.model.present?
+           search_item = manufacture + "+" + model
+           search_item = search_item.encode('UTF-8')
+           url_prefix2 ="&g=0&myButton.x=0&myButton.y=0&myButton=%E6%A4%9C%E7%B4%A2&v=2&s=1&p=1&min=&max=&sf=0&st=A&nitem=&grp=product"
+           rakuten_url = url_prefix+search_item+url_prefix2
+           #rakuten_url = "http://www.rakuten" #url_prefix+search_item+url_prefix2
+         %>
+         <span class="glyphicon glyphicon-link"></span>
+         <span><a href=<%= rakuten_url %> target="_blank">楽天で同じ商品を検索する</a></span>
+        </p>
+      </td>
+      <td><%= item.brand %></td>
+      <td><%= item.height %>cm</td>
+      <td><%= item.width %>cm</td>
+      <td><%= item.length %>cm</td>
+      <td><%= item.price %>円</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

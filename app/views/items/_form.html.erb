@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <%= form_for(@item,:html => {:class => "form-horizontal"}) do |f| %>
+    <% if @item.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @item.errors.full_messages.each do |full_messages| %>
+          <li>
+            <%= full_messages %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
+    <div class="form-group">
+      <%= f.label :title, '名前', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5 ">
+        <%= f.text_field :title, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :color, 'color', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5 ">
+        <%= f.text_field :color, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :height,'height', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-7">
+        <%= f.text_area :height, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :width,'width', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-7">
+        <%= f.text_area :width, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :length,'length', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-7">
+        <%= f.text_area :length, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-2">
+        <%= f.submit class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div><%= link_to "amazon" , @item.durl %></div>
+  <%= link_to "redefine" , item_redefine_path(@item.id) %>
+</div>

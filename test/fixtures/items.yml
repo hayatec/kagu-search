@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_id: 
+  asin: MyString
+  ean: MyString
+  model: MyText
+  title: MyText
+  partnumber: MyText
+  durl: MyText
+  small_image: MyText
+  midium_image: MyText
+  large_image: MyText
+  brand: MyText
+  color: MyText
+  manufacture: MyText
+  sales_rank: MyText
+  feature: MyText
+  editorialreviews: MyText
+  height: MyString
+  width: MyString
+  length: MyString
+  pkg_height_inc: MyString
+  pkg_width_inc: MyString
+  pkg_length_inc: MyString
+  list_price: MyString
+  price: MyText
+  amount_savd: MyString
+  availabilityattributes: MyString
+  : MyString
+
+two:
+  category_id: 
+  asin: MyString
+  ean: MyString
+  model: MyText
+  title: MyText
+  partnumber: MyText
+  durl: MyText
+  small_image: MyText
+  midium_image: MyText
+  large_image: MyText
+  brand: MyText
+  color: MyText
+  manufacture: MyText
+  sales_rank: MyText
+  feature: MyText
+  editorialreviews: MyText
+  height: MyString
+  width: MyString
+  length: MyString
+  pkg_height_inc: MyString
+  pkg_width_inc: MyString
+  pkg_length_inc: MyString
+  list_price: MyString
+  price: MyText
+  amount_savd: MyString
+  availabilityattributes: MyString
+  : MyString

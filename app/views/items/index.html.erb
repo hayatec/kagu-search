@@ -1,0 +1,23 @@
+<% content_for :title do %>
+    <title>検索 - 家具を探す君</title>
+    <meta content="" name="description">
+    <meta content="Monolist" name="keywords">
+<% end %>
+
+<div class="search">
+  <%= render 'form_search' %>
+</div>
+
+<div class="search-result">
+  <% if @item.present? %>
+
+    <%= render 'item' , item: @item %>
+    
+    
+  <% elsif params[:q].present? %>
+    <div class="alert alert-danger">
+      <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+      検索したアイテムはありません
+    </div>
+  <% end %>
+</div>
